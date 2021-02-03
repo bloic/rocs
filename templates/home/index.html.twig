@@ -1,9 +1,11 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}{{ parent() }}{% endblock %}
-
+{% block stylesheets %}
+    {{ encore_entry_link_tags('homepage') }}
+{% endblock %}
 {% block body %}
-    <main class="container-fluid my-5">
+    <main class="container-fluid">
         <div class="row">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <ol class="carousel-indicators">
@@ -12,11 +14,9 @@
                     <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-                    {% set link = "" %}
                     {% for picture in pictures %}
-                        {% set link = picture %}
                         <div class="carousel-item  {% if loop.index0 == 0 %} active {% endif %}">
-                        <img src="{{ asset('build/images/'{{picture.link }}) }}" class="d-block w-100" alt="{{ picture.name }}">
+                        <img src="{{ asset('build/images/'~picture.link) }}" class="d-block picture w-100" alt="{{ picture.name }}">
                     </div>
                     {% endfor %}
                 </div>
@@ -28,6 +28,17 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </a>
+            </div>
+        </div>
+
+        <h1 class="text-center my-5">Roller Olympique Club Stéoruellan</h1>
+
+        <div class="row">
+            <div class="col-lg-6">
+            <img src="{{ asset('build/images/logo.jpg') }}" alt="logo rocs">
+            </div>
+            <div>
+
             </div>
         </div>
     </main>

@@ -11,12 +11,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/Admin/picture")
+ * @Route("/Admin/picture", name="admin_picture_")
  */
 class PictureAdminController extends AbstractController
 {
     /**
-     * @Route("/", name="picture_index", methods={"GET"})
+     * @Route("/", name="index", methods={"GET"})
+     * @param PictureRepository $pictureRepository
+     * @return Response
      */
     public function index(PictureRepository $pictureRepository): Response
     {
@@ -26,7 +28,7 @@ class PictureAdminController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="picture_new", methods={"GET","POST"})
+     * @Route("/new", name="new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -39,7 +41,7 @@ class PictureAdminController extends AbstractController
             $entityManager->persist($picture);
             $entityManager->flush();
 
-            return $this->redirectToRoute('picture_index');
+            return $this->redirectToRoute('admin_picture_index');
         }
 
         return $this->render('pictureAdmin/new.html.twig', [
@@ -49,17 +51,20 @@ class PictureAdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="picture_show", methods={"GET"})
+     * @Route("/{id}", name="show", methods={"GET"})
      */
     public function show(Picture $picture): Response
     {
         return $this->render('pictureAdmin/show.html.twig', [
-            'pictureAdmin' => $picture,
+            'picture' => $picture,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="picture_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Picture $picture
+     * @return Response
      */
     public function edit(Request $request, Picture $picture): Response
     {
@@ -69,17 +74,20 @@ class PictureAdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('picture_index');
+            return $this->redirectToRoute('admin_picture_index');
         }
 
         return $this->render('pictureAdmin/edit.html.twig', [
-            'pictureAdmin' => $picture,
+            'picture' => $picture,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="picture_delete", methods={"DELETE"})
+     * @Route("/{id}", name="delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Picture $picture
+     * @return Response
      */
     public function delete(Request $request, Picture $picture): Response
     {
@@ -89,6 +97,6 @@ class PictureAdminController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('picture_index');
+        return $this->redirectToRoute('admin_picture_index');
     }
 }

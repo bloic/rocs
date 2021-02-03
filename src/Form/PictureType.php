@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Picture;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,8 +14,18 @@ class PictureType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('link')
+            ->add('name', TextType::class , [
+                'label'=>'nom',
+                'attr'=>[
+                    'placeholder'=>'marie et luc '
+                ]
+            ])
+            ->add('link', TextType::class, [
+                'label'=>'lien',
+                'attr'=>[
+                    'placeholder'=>'build/images/maieetluc.jpg'
+                ]
+            ])
         ;
     }
 

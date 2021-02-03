@@ -1,13 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Edit Picture{% endblock %}
+{% block title %}{{ parent() }}| modifier une photo{% endblock %}
 
 {% block body %}
-    <h1>Edit Picture</h1>
+    <main class="container">
+        <h1 class="my-5 text-center">Modifier une photo</h1>
 
-    {{ include('pictureAdmin/_form.html.twig', {'button_label': 'Update'}) }}
+        {% include('pictureAdmin/_form.html.twig') with {'label_button':'modifier'} %}
 
-    <a href="{{ path('picture_index') }}">back to list</a>
+        <a class="btn btn-outline-danger my-4" href="{{ path('admin_picture_index') }}">Accueil administration</a>
 
-    {{ include('pictureAdmin/_delete_form.html.twig') }}
+        {{ include('pictureAdmin/_delete_form.html.twig') }}
+    </main>
 {% endblock %}

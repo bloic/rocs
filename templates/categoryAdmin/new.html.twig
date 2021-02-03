@@ -1,0 +1,13 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}New Category{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <h1 class="text-center my-5">Ajouter une nouvelle catégorie</h1>
+
+        {% include('categoryAdmin/_form.html.twig') with {'label_button': 'Ajouter'} %}
+
+        <a class="btn btn-outline-danger my-5" href="{{ path('admin_category_index') }}">Accueil administration</a>
+    </main>
+{% endblock %}

@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\PictureRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass=PictureRepository::class)
+ * @ORM\Entity(repositoryClass=CategoryRepository::class)
  */
-class Picture
+class Category
 {
     /**
      * @ORM\Id
@@ -20,15 +19,18 @@ class Picture
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      */
-    private $link;
+    private $coach;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $representative;
 
     public function getId(): ?int
     {
@@ -47,14 +49,26 @@ class Picture
         return $this;
     }
 
-    public function getLink(): ?string
+    public function getCoach(): ?string
     {
-        return $this->link;
+        return $this->coach;
     }
 
-    public function setLink(string $link): self
+    public function setCoach(string $coach): self
     {
-        $this->link = $link;
+        $this->coach = $coach;
+
+        return $this;
+    }
+
+    public function getRepresentative(): ?string
+    {
+        return $this->representative;
+    }
+
+    public function setRepresentative(string $representative): self
+    {
+        $this->representative = $representative;
 
         return $this;
     }

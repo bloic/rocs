@@ -1,12 +1,11 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Picture index{% endblock %}
+{% block title %}Category index{% endblock %}
 
 {% block body %}
     <main class="container">
-        <h1 class="my-5 text-center">Liste des photos</h1>
-
-        <a class="btn btn-primary my-5" href="{{ path('admin_picture_new') }}">
+        <h1>Category index</h1>
+        <a class="btn btn-primary my-5" href="{{ path('admin_category_new') }}">
             Ajouter
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square"
                  viewBox="0 0 16 16">
@@ -16,35 +15,34 @@
                  1 8 4z"/>
             </svg>
         </a>
-
         <table class="table">
             <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Link</th>
+                <th>Coach</th>
+                <th>Representative</th>
                 <th>actions</th>
             </tr>
             </thead>
             <tbody>
-            {% for picture in pictures %}
+            {% for category in categories %}
                 <tr>
-                    <td>{{ picture.id }}</td>
-                    <td>{{ picture.name }}</td>
-                    <td>{{ picture.link }}</td>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.coach }}</td>
+                    <td>{{ category.representative }}</td>
                     <td>
-                        <a href="{{ path('admin_picture_show', {'id': picture.id}) }}">show</a>
-                        <a href="{{ path('admin_picture_edit', {'id': picture.id}) }}">edit</a>
+                        <a href="{{ path('admin_category_show', {'id': category.id}) }}">show</a>
+                        <a href="{{ path('admin_category_edit', {'id': category.id}) }}">edit</a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="4">no records found</td>
+                    <td colspan="5">no records found</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-
     </main>
-
 {% endblock %}
