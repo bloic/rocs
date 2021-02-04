@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-xl navbar-dark bg-primary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">ROCS</a>
+<nav class="navbar navbar-expand-xl navbar-dark bg-primary shadow ">
+    <div class="container-fluid text-uppercase">
+        <a class="navbar-brand" href="#">Rocs</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -17,6 +17,24 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="#" >Contact</a>
+                </li>
+                <li class="nav-item dropdown pr-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        {% if app.user %}
+                            <a class="dropdown-item" href="{{ path('app_login') }}">Se déconnecter</a>
+                            {% if is_granted("ROLE_ADMIN") %}
+                                <a class="dropdown-item" href="#">Espace Admin</a>
+                            {% else %}
+                                <a class="dropdown-item" href="#">Mon compte</a>
+                            {% endif %}
+                        {% else %}
+                            <a class="dropdown-item" href="{{ path('app_login') }}">Se connecter</a>
+                            <a class="dropdown-item" href="#">Créer un compte</a>
+                        {% endif %}
+                    </div>
                 </li>
             </ul>
         </div>

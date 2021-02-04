@@ -1,0 +1,15 @@
+@import "app";
+
+.social-network {
+  svg:hover {
+    transform: scale(1.3);
+  }
+}
+
+.social-network svg {
+  transition: all 200ms;
+}
+
+.social-network svg {
+  fill: $light;
+}

@@ -38,6 +38,10 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('home', './assets/styles/app.scss')
     .addEntry('homepage', './assets/styles/home.scss')
+    .addEntry('footer', './assets/styles/footer.scss')
+    .addEntry('login', './assets/styles/login.scss')
+
+
 
 
 

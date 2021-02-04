@@ -32,6 +32,11 @@ class Category
      */
     private $representative;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $numberSkaters;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Category
     public function setRepresentative(string $representative): self
     {
         $this->representative = $representative;
+
+        return $this;
+    }
+
+    public function getNumberSkaters(): ?int
+    {
+        return $this->numberSkaters;
+    }
+
+    public function setNumberSkaters(?int $numberSkaters): self
+    {
+        $this->numberSkaters = $numberSkaters;
 
         return $this;
     }
