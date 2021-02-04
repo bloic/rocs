@@ -3,6 +3,7 @@ $secondary: #90e0ef;
 
 $navbar-dark-color: #ffff;
 $navbar-dark-hover-color: #90e0ef;
+$grey: #808080;
 $spacing: 8px;
 $spacing-2: $spacing*2;
 $spacing-4: $spacing*4;
@@ -11,5 +12,7 @@ $spacing-section: $spacing*10;
 
 
 $title-size: 22px;
-$text-size: 16px;
-$text-font: roboto,sans-serif, Arial, sans-serif, Open Sans, sans-serif;
+$text-size: 18px;
+
+$title-font: 'Playfair Display', serif;
+$text-font: 'PT Serif', serif;

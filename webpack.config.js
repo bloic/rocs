@@ -40,6 +40,8 @@ Encore
     .addEntry('homepage', './assets/styles/home.scss')
     .addEntry('footer', './assets/styles/footer.scss')
     .addEntry('login', './assets/styles/login.scss')
+    .addEntry('contact', './assets/styles/contact.scss')
+
 
 
 

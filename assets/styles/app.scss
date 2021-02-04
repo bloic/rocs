@@ -1,4 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arizonia&family=PT+Serif&family=Playfair+Display:ital@0;1&display=swap');
 @import "variables";
 @import "~bootstrap/scss/bootstrap";
 
+* {
+  box-sizing: border-box;
+}
+
+
+h1,
+h2,
+h3,
+h5,
+h6 {
+  font-family: $title-font;
+  font-size:$title-size;
+
+
+}
+
+p,
+a,
+button,
+td,
+th {
+  font-family: $text-font;
+  font-size:$text-size;
+}
