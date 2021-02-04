@@ -9,11 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/Admin/picture", name="admin_picture_")
+ * @IsGranted("ROLE_ADMIN")
  */
-class PictureAdminController extends AbstractController
+class AdminPictureController extends AbstractController
 {
     /**
      * @Route("/", name="index", methods={"GET"})

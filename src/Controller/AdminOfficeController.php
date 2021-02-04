@@ -9,11 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/admin/office", name="admin_office_")
+ * @IsGranted("ROLE_ADMIN")
  */
-class OfficeAdminController extends AbstractController
+class AdminOfficeController extends AbstractController
 {
     /**
      * @Route("/", name="index", methods={"GET"})

@@ -1,11 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}New Publication{% endblock %}
+{% block title %}{{ parent() }} |Ajouter une publication{% endblock %}
 
 {% block body %}
-    <h1>Create new Publication</h1>
+    <main class="container">
+        <h1 class="text-center my-5">Ajouter une publication</h1>
 
-    {{ include('publicationAdmin/_form.html.twig') }}
+        {% include('publicationAdmin/_form.html.twig') with {'label_button': 'Ajouter'} %}
 
-    <a href="{{ path('publication_index') }}">back to list</a>
+        <a class="btn btn-danger my-3" href="{{ path('admin_publication_index') }}">Accueil administration</a>
+    </main>
 {% endblock %}
