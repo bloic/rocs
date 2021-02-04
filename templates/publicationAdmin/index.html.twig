@@ -1,0 +1,49 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}Publication index{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <h1 class="text-center my-5">Liste des publications</h1>
+        <a class="btn btn-primary" href="{{ path('admin_publication_new') }}">Create new</a>
+        <div class="col-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Picture</th>
+                    <th>actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for publication in publications %}
+                    <tr>
+                        <td>{{ publication.id }}</td>
+                        <td>{{ publication.title }}</td>
+                        <td>{{ publication.date ? publication.date|date('Y-m-d') : '' }}</td>
+                        <td>{{ publication.picture }}</td>
+                        <td class="d-flex flex-column flex-lg-row">
+                            <a class="btn btn-outline-primary mb-3 mb-lg-0 mr-lg-3"
+                               href="{{ path('admin_publication_show', {'id': publication.id}) }}">
+                                voir
+                            </a>
+                            <a class="btn btn-outline-primary mb-3 mb-lg-0 mr-3"
+                               href="{{ path('admin_publication_edit', {'id': publication.id}) }}">
+                                modifier
+                            </a>
+                            {% include 'publicationAdmin/_delete_form.html.twig' %}
+
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+{% endblock %}

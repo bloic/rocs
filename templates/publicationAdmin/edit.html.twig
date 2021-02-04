@@ -1,0 +1,12 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}{{ parent() }}|Modifier une publication{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <h1 class="text-center my-5">modifier une publication</h1>
+            {% include('publicationAdmin/_form.html.twig') with {'label_button': 'Modifier'} %}
+
+        <a class="btn btn-danger mt-3" href="{{ path('admin_publication_index') }}">Accueil Administration</a>
+    </main>
+{% endblock %}

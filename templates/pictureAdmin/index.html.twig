@@ -17,7 +17,7 @@
             </svg>
         </a>
 
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th>Id</th>
@@ -32,9 +32,12 @@
                     <td>{{ picture.id }}</td>
                     <td>{{ picture.name }}</td>
                     <td>{{ picture.link }}</td>
-                    <td>
-                        <a href="{{ path('admin_picture_show', {'id': picture.id}) }}">show</a>
-                        <a href="{{ path('admin_picture_edit', {'id': picture.id}) }}">edit</a>
+                    <td class="d-flex">
+                        <a class="btn btn-outline-primary mr-3" href="{{ path('admin_picture_edit', {'id': picture.id}) }}">
+                            edit
+                        </a>
+                        {% include 'pictureAdmin/_delete_form.html.twig' %}
+
                     </td>
                 </tr>
             {% else %}

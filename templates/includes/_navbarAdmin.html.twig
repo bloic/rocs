@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-xl navbar-dark bg-primary">
+<nav class="navbar navbar-expand-xl navbar-dark bg-primary text-uppercase">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,10 +13,16 @@
                     <a class="nav-link" href="{{ path('admin_category_index') }}">Categorie</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin_office_index') }}">Le bureau</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin_publication_index') }}">Publication</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ path('admin_picture_index') }}">Photo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ path('home') }}" >Retour accueil visiteur</a>
+                    <a class="nav-link " href="{{ path('home') }}" >Retour accueil Utilisateur</a>
                 </li>
             </ul>
         </div>

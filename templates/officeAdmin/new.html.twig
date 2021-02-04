@@ -1,0 +1,11 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}{{ parent() }}|Nouveau bureau{% endblock %}
+
+{% block body %}
+    <h1>Creation d'un nouveau bureau</h1>
+
+    {% include('officeAdmin/_form.html.twig') with {'label_button':'Ajouter'} %}
+
+    <a class="btn btn-outline-danger" href="{{ path('admin_office_index') }}">Accueil Administration</a>
+{% endblock %}

@@ -51,16 +51,6 @@ class PictureAdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
-     */
-    public function show(Picture $picture): Response
-    {
-        return $this->render('pictureAdmin/show.html.twig', [
-            'picture' => $picture,
-        ]);
-    }
-
-    /**
      * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
      * @param Request $request
      * @param Picture $picture
