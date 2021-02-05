@@ -9,10 +9,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+/**
+ * @Route("/home", name="home_")
+ */
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="index")
      * @param PictureRepository $pictureRepository
      * @param PublicationRepository $publicationRepository
      * @return Response
@@ -26,12 +30,14 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/", methods={"GET"}, name="publication_show")
+     * @Route("{id}/", methods={"GET"}, name="publication_show")
+     * @param Publication $publication
+     * @return Response
      */
-    public function publicationShow(Publication $publication)
+    public function publicationShow(Publication $publication): Response
     {
         return $this->render('home/show.html.twig', [
-            'publication'=>$publication
+            'publication'=>$publication,
         ]);
 
     }
