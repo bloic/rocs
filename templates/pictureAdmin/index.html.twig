@@ -6,7 +6,7 @@
     <main class="container">
         <h1 class="my-5 text-center my-5">Liste des photos</h1>
 
-        <a class="btn btn-primary my-5" href="{{ path('admin_picture_new') }}">
+        <a class="btn btn-secondary my-5" href="{{ path('admin_picture_new') }}">
             Ajouter
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square"
                  viewBox="0 0 16 16">
@@ -33,7 +33,7 @@
                     <td>{{ picture.name }}</td>
                     <td>{{ picture.link }}</td>
                     <td class="d-flex">
-                        <a class="btn btn-outline-primary mr-3" href="{{ path('admin_picture_edit', {'id': picture.id}) }}">
+                        <a class="btn btn-outline-secondary mr-3" href="{{ path('admin_picture_edit', {'id': picture.id}) }}">
                             edit
                         </a>
                         {% include 'pictureAdmin/_delete_form.html.twig' %}

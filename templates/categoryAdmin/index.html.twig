@@ -5,7 +5,7 @@
 {% block body %}
     <main class="container">
         <h1 class="text-center my-5">Liste des catégories</h1>
-        <a class="btn btn-primary my-5" href="{{ path('admin_category_new') }}">
+        <a class="btn btn-secondary my-5" href="{{ path('admin_category_new') }}">
             Ajouter
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square"
                  viewBox="0 0 16 16">
@@ -33,7 +33,7 @@
                     <td>{{ category.coach }}</td>
                     <td>{{ category.representative }}</td>
                     <td class="d-flex">
-                        <a class="btn btn-outline-primary mr-3" href="{{ path('admin_category_edit', {'id': category.id}) }}">edit</a>
+                        <a class="btn btn-outline-secondary mr-3" href="{{ path('admin_category_edit', {'id': category.id}) }}">edit</a>
                         {% include 'categoryAdmin/_delete_form.html.twig' %}
 
                     </td>

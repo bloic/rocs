@@ -41,6 +41,7 @@ Encore
     .addEntry('footer', './assets/styles/footer.scss')
     .addEntry('login', './assets/styles/login.scss')
     .addEntry('contact', './assets/styles/contact.scss')
+    .addEntry('history', './assets/styles/history.scss')
 
 
 

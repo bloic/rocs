@@ -2,7 +2,7 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('contact') }}
         {% endblock %}
-{% block title %}Hello ContactController!{% endblock %}
+{% block title %}{{ parent() }} | Contact{% endblock %}
 
 {% block body %}
     {% for category, messages in app.flashes %}
@@ -15,15 +15,19 @@
     <main class=" py-5">
         <div class="container">
             <h1 class="text-center pt-5 text-uppercase">Contact</h1>
-            <div class="row">
-                <div class="col-lg-6 my-5">
-                    <img class="w-100 shadow p-1" src="{{ asset('build/images/mauricemillet.jpg') }}" alt="locaux gym">
-                </div>
-                <div class="col-lg-6 my-5 text-center">
-                    <h3 class="text-center"> Nos Coordonnées</h3>
-                    <p class="mt-5">Gymnase Maurice Millet</p>
-                    <p>18 rue Maurice Millet</p>
-                    <p>45140 ST JEAN DE LA RUELLE</p>
+            <div class="card my-3" >
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <img class="w-100" src="{{ asset('build/images/mauricemillet.jpg') }}" alt="locaux gym">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body text-center">
+                            <h5 class="card-title my-5">Nos Coordonnées</h5>
+                            <p class="card-text">Gymnase Maurice Millet</p>
+                            <p>18 rue Maurice Millet</p>
+                            <p>45140 ST JEAN DE LA RUELLE</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 

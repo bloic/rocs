@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}{{ parent() }}{% endblock %}
+{% block title %}{{ parent() }} | Vous souhaitez la bienvenue{% endblock %}
 {% block stylesheets %}
     {{ encore_entry_link_tags('homepage') }}
 {% endblock %}
@@ -38,16 +38,18 @@
             </a>
         </div>
 
-        <h1 class="text-center my-5">article récent</h1>
+        <h1 class="text-center my-5">Actualités</h1>
 
         <div class="row mx-5">
             {% for publication in publications %}
-                <div class="card my-4">
-                    <h5 class="card-header bg-primary">{{ publication.title }}</h5>
-                    <div class="card-body">
-                        <p class="card-text">{{ publication.description }}</p>
-                        <p class="text-muted text-right">{{ publication.date is empty ? '' : publication.date|date('d/m/Y') }}</p>
-                        <a href="#" class="btn btn-primary">Lire l'article</a>
+                <div class="col-lg-4">
+                    <div class="card my-4">
+                        <h5 class="card-header bg-primary text-center">{{ publication.title }}</h5>
+                        <div class="card-body">
+                            <p class="card-text text-truncate">{{ publication.description }}</p>
+                            <p class="text-muted text-right">{{ publication.date is empty ? '' : publication.date|date('d/m/Y') }}</p>
+                            <a href="#" class="btn btn-secondary">Lire l'article</a>
+                        </div>
                     </div>
                 </div>
             {% endfor %}

@@ -13,10 +13,13 @@ class OfficeFixtures extends Fixture
     {
         $faker = Faker\Factory::create('fr_FR');
         for ($i = 0; $i < 11; $i++) {
-        $office = new Office();
-        $office->setName($faker->name);
-        $office->setStatus($faker->jobTitle);
-        $manager->persist($office);
+            $office = new Office();
+            $image = 'https://loremflickr.com/600/500/director';
+            $office->setName($faker->name);
+            $office->setStatus($faker->jobTitle);
+            $office->setDescription($faker->realText(1500));
+            $office->setPicture($image);
+            $manager->persist($office);
         }
 
         $manager->flush();

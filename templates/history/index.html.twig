@@ -1,36 +1,92 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}{{ parent() }}| Qui sommes Nous?{% endblock %}
-
+{% block stylesheets %}
+    {{ encore_entry_link_tags('history') }}
+{% endblock %}
 {% block body %}
-    <main class="container-fluid">
+    <main class="container-fluid nav-marg">
         <h1 class="text-center my-5">Qui sommes nous?</h1>
-        <div class="row">
-            <div class="col-lg-6">
-                <img class="shadow p-2 w-100" src="{{ asset('build/images/photogroupe.jpg') }}"
-                     alt="photo groupe gala 2019">
-            </div>
-            <div class="col-lg-6">
-                <p>A l'occasion de la fête du Sport, la Mairie de St Jean de la Ruelle organisait en 1984, une
-                    randonnée très particulière puisque tous les participants chaussaient des patins à
-                    roulettes. <br>
-                    En 1986, la Ville de St jean de la Ruelle projette de relever un grand défi : parcourir
-                    1200 kms en relais sur patins à roulettes et relier
-                    ST JEAN DE LA RUELLE à AMPOSTA, la Ville jumelle Espagnole. <br>
+        <div class="card mb-3" >
+            <div class="row g-0">
+                <div class="col-md-6">
+                    <img class=" w-100" src="{{ asset('build/images/photogroupe.jpg') }}" alt="photo groupe gala 2019">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mt-3 mb-5">Histoire du club</h5>
+                        <p class="card-text">
+                            A l'occasion de la fête du Sport, la Mairie de St Jean de la Ruelle organisait en 1984, une
+                            randonnée très particulière puisque tous les participants chaussaient des patins à
+                            roulettes. <br>
+                            En 1986, la Ville de St jean de la Ruelle projette de relever un grand défi : parcourir
+                            1200 kms en relais sur patins à roulettes et relier
+                            ST JEAN DE LA RUELLE à AMPOSTA, la Ville jumelle Espagnole. <br>
 
-                    Le R.O.C.S. ou Roller Olympique Club Stéoruellan était né.
-                    Vingt huit jeunes participent à cette aventure et grâce à leur exploit, obtiennent une
-                    mention au Livre des Records
-                    Au fil des années, le Club s'agrandit et compte actuellement
-                    5 disciplines : Artistique, COURSE, HOCKEY, RINK HOCKEY, RANDONNEE ainsi qu&#39;une Ecole
-                    de Patinage. <br>
-                    Le R.O.C.S. est affilié à la Fédération Française de Roller Sports (FFRS).
-                    Le R.O.C.S a fêté ses 30 ans en 2016.
-                </p>
+                            Le R.O.C.S. ou Roller Olympique Club Stéoruellan était né.
+                            Vingt huit jeunes participent à cette aventure et grâce à leur exploit, obtiennent une
+                            mention au Livre des Records
+                            Au fil des années, le Club s'agrandit et compte actuellement
+                            5 disciplines : Artistique, COURSE, HOCKEY, RINK HOCKEY, RANDONNEE ainsi qu&#39;une Ecole
+                            de Patinage. <br>
+                            Le R.O.C.S. est affilié à la Fédération Française de Roller Sports (FFRS).
+                            Le R.O.C.S a fêté ses 30 ans en 2016.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-        Saison 2018/2019: 261 licenciés dont 164 de moins de 18 ans
-        Artistique = 100 - Course = 60 dont 20 Ecole de Patinage - Hockey = 66 - Rink Hockey = 23
-        - Randonnée = 12
+                <div class="container-fluid my-5">
+            <div class="card mb-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            {% for office in offices %}
+                            <h5 class="card-title text-center mt-3 mb-5">Le Président du Rocs</h5>
+                            <p class="card-text">Nom :{{ office.name }}</p>
+                            <p class="card-text">Status:{{ office.status }}</p>
+                            <p class="card-text">{{ office.description }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img class="w-100" src="{{ office.picture }}" alt="">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="container-fluid">
+            <div class=" row">
+                <div class="col-lg-12">
+                    <h2 class="text-center my-5">Nombre de licenciés total et par section</h2>
+                    <table class="table category table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre de licenciés</th>
+                            <th scope="col">Représentant(e)</th>
+                            <th scope="col">Coach</th>
+                            <th scope="col">Total de licenciés par section</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for category in categories %}
+                            <tr>
+                                <th scope="row">{{ category.id }}</th>
+                                <td>{{ category.name }}</td>
+                                <td>{{ category.representative }}</td>
+                                <td>{{ category.coach }}</td>
+                                <td>{{ category.numberSkaters }}</td>
+                            </tr>
+                        {% endfor %}
+                        <td colspan="3"></td>
+                        <td>Total de licenciés</td>
+                        <td>{{ members.totalMembership }}</td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </main>
 {% endblock %}
