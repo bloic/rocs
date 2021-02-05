@@ -1,42 +1,44 @@
-<nav class="navbar navbar-expand-xl navbar-light bg-primary shadow fixed-top">
-    <div class="container-fluid text-uppercase">
-        <a class="navbar-brand" href="#">Rocs</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ path('home') }}">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('gala_index') }}">Gala</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('history_index') }}">Qui sommes-nous?</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ path('contact_index') }}" >Contact</a>
-                </li>
-                <li class="nav-item dropdown pr-3">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        {% if app.user %}
-                            <a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
-                            {% if is_granted("ROLE_ADMIN") %}
-                                <a class="dropdown-item" href="#">Espace Admin</a>
-                            {% else %}
-                                <a class="dropdown-item" href="#">Mon compte</a>
-                            {% endif %}
+<nav class="navbar navbar-expand-xl navbar-light bg-primary  py-3 shadow fixed-top">
+    <a class="navbar-brand text-uppercase" href="#">Rocs</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto text-uppercase">
+            <li class="nav-item">
+                <a class="nav-link " href="{{ path('home') }}">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('gala_index') }}">Gala</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('history_index') }}">Qui sommes-nous?</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ path('contact_index') }}">Contact</a>
+            </li>
+            <img src="{{ asset('build/images/user.ico') }}" alt="logo user"
+                 class="p-1 bg-dark  border border-light rounded-circle">
+
+            <li class="nav-item dropdown pr-3">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    {% if app.user %}
+                        <a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <a class="dropdown-item" href="{{ path('admin_home') }}">Espace Admin</a>
                         {% else %}
-                            <a class="dropdown-item" href="{{ path('app_login') }}">Se connecter</a>
-                            <a class="dropdown-item" href="#">Créer un compte</a>
+                            <a class="dropdown-item" href="#">Mon compte</a>
                         {% endif %}
-                    </div>
-                </li>
-            </ul>
-        </div>
+                    {% else %}
+                        <a class="dropdown-item" href="{{ path('app_login') }}">Se connecter</a>
+                        <a class="dropdown-item" href="#">Créer un compte</a>
+                    {% endif %}
+                </div>
+            </li>
+        </ul>
     </div>
 </nav>

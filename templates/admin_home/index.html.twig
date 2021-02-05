@@ -1,0 +1,48 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block body %}
+    <main class="container-fluid">
+        <h1 class="text-center text-uppercase my-5">Adminstration</h1>
+        <div class="row d-flex justify-content-around">
+            <div class="card col-lg-3">
+                <img src="{{ asset('build/images/team.png') }}" class="card-img-top w-100" alt="menu le bureau">
+                <div class="card-body">
+                    <h3 class="card-text text-light">
+                        Le bureau
+                    </h3>
+                    <a class="btn btn-secondary w-100" href="{{ path('admin_office_index') }}">Accéder</a>
+                </div>
+            </div>
+            <div class="card col-lg-3">
+                <img src="{{ asset('build/images/category.png') }}" class="card-img-top w-100" alt="menu le bureau">
+                <div class="card-body">
+                    <h3 class="card-text text-light">
+                        categorie
+                    </h3>
+                    <a class="btn btn-secondary w-100" href="{{ path('admin_category_index') }}">Accéder</a>
+
+                </div>
+            </div>
+            <div class="card col-lg-3">
+                <img src="{{ asset('build/images/article.png') }}" class="card-img-topw-100" alt="menu le bureau">
+                <div class="card-body">
+                    <h3 class="card-text text-dark">
+                        article
+                    </h3>
+                    <a class="btn btn-secondary w-100" href="{{ path('admin_publication_index') }}">Accéder</a>
+                </div>
+            </div>
+            <div class="card col-lg-3">
+                <img  src="{{ asset('build/images/image.png') }}" class="card-img-top w-100" alt="menu le bureau">
+                <div class="card-body">
+                    <h3 class="card-text text-light">
+                        Photo
+                    </h3>
+                    <a class="btn btn-secondary w-100" href="{{ path('admin_picture_index') }}">Accéder</a>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

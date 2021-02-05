@@ -45,6 +45,7 @@ class AdminPublicationController extends AbstractController
             $entityManager->persist($publication);
             $entityManager->flush();
 
+            $this->addFlash('success', 'La publication a bien été ajouté.');
             return $this->redirectToRoute('admin_publication_index');
         }
 
@@ -77,6 +78,7 @@ class AdminPublicationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'La publication a bien été modifié');
             return $this->redirectToRoute('admin_publication_index');
         }
 
@@ -99,6 +101,7 @@ class AdminPublicationController extends AbstractController
             $entityManager->remove($publication);
             $entityManager->flush();
         }
+        $this->addFlash('danger', 'la publication a bien été supprimé');
 
         return $this->redirectToRoute('admin_publication_index');
     }

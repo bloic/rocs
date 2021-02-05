@@ -3,6 +3,13 @@
 {% block title %}{{ parent() }} | Liste  des photos{% endblock %}
 
 {% block body %}
+    {% for category, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     <main class="container">
         <h1 class="my-5 text-center my-5">Liste des photos</h1>
 

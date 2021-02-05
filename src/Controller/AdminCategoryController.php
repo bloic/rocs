@@ -45,6 +45,7 @@ class AdminCategoryController extends AbstractController
             $entityManager->persist($category);
             $entityManager->flush();
 
+            $this->addFlash('success', 'la nouvelle catégorie a bien été ajouté.');
             return $this->redirectToRoute('admin_category_index');
         }
 
@@ -68,6 +69,7 @@ class AdminCategoryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'La catégorie a bien été modifié.');
             return $this->redirectToRoute('admin_category_index');
         }
 
@@ -90,7 +92,7 @@ class AdminCategoryController extends AbstractController
             $entityManager->remove($category);
             $entityManager->flush();
         }
-
+        $this->addFlash('danger', 'la catégorie a bien été effacé.');
         return $this->redirectToRoute('admin_category_index');
     }
 }

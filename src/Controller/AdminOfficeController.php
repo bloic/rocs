@@ -45,6 +45,7 @@ class AdminOfficeController extends AbstractController
             $entityManager->persist($office);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Un membre du bureau a bien été ajouté');
             return $this->redirectToRoute('admin_office_index');
         }
 
@@ -70,6 +71,7 @@ class AdminOfficeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'Le membre du bureau a bien été modifié.');
             return $this->redirectToRoute('admin_office_index');
         }
 
@@ -93,6 +95,7 @@ class AdminOfficeController extends AbstractController
             $entityManager->flush();
         }
 
+        $this->addFlash('danger', 'Le membre bureau a bien été supprimé.');
         return $this->redirectToRoute('admin_office_index');
     }
 }

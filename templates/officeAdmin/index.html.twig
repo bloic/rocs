@@ -3,6 +3,13 @@
 {% block title %}{{ parent() }} | Le bureau {% endblock %}
 
 {% block body %}
+    {% for category, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     <main class="container">
         <h1 class="my-5 text-center">Le bureau</h1>
         <a class="btn btn-secondary my-5" href="{{ path('admin_office_new') }}">

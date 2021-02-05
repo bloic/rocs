@@ -42,6 +42,8 @@ Encore
     .addEntry('login', './assets/styles/login.scss')
     .addEntry('contact', './assets/styles/contact.scss')
     .addEntry('history', './assets/styles/history.scss')
+    .addEntry('gala', './assets/styles/gala.scss')
+
 
 
 
