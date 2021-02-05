@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Publication;
 use App\Repository\PictureRepository;
 use App\Repository\PublicationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,5 +23,16 @@ class HomeController extends AbstractController
             'pictures'=>$pictureRepository->findAll(),
             'publications'=>$publicationRepository->findAll()
         ]);
+    }
+
+    /**
+     * @Route("/{id}/", methods={"GET"}, name="publication_show")
+     */
+    public function publicationShow(Publication $publication)
+    {
+        return $this->render('home/show.html.twig', [
+            'publication'=>$publication
+        ]);
+
     }
 }

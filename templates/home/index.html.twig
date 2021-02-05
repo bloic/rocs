@@ -48,7 +48,7 @@
                         <div class="card-body">
                             <p class="card-text text-truncate">{{ publication.description }}</p>
                             <p class="text-muted text-right">{{ publication.date is empty ? '' : publication.date|date('d/m/Y') }}</p>
-                            <a href="#" class="btn btn-secondary">Lire l'article</a>
+                            <a href="{{ path('publication_show',{'id':publication.id}) }}" class="btn btn-secondary">Lire l'article</a>
                         </div>
                     </div>
                 </div>
