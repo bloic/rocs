@@ -5,7 +5,7 @@ Launch your server and read the instructions.
 
 ## Requirements
 
-- Php ^7.4 http://php.net/manual/fr/install.php;
+- Php ^7.2 http://php.net/manual/fr/install.php;
 - Composer https://getcomposer.org/download/;
 - Yarn https://classic.yarnpkg.com/en/docs/install/#debian-stable;
 - Node https://nodejs.org/en/;
