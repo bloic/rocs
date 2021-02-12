@@ -13,7 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/admin/category", name = "admin_category_")
- *  * @IsGranted("ROLE_ADMIN")
+ * @IsGranted("ROLE_ADMIN")
  */
 class AdminCategoryController extends AbstractController
 {

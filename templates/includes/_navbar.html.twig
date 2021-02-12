@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-xl navbar-light bg-primary  py-3 shadow fixed-top">
+<nav class="navbar navbar-expand-xl navbar-light bg-primary fixed-top pb-3 shadow">
     <a class="navbar-brand text-uppercase" href="#">Rocs</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
                         {% endif %}
                     {% else %}
                         <a class="dropdown-item" href="{{ path('app_login') }}">Se connecter</a>
-                        <a class="dropdown-item" href="#">Créer un compte</a>
+                        <a class="dropdown-item" href="{{ path('app_register') }}">Créer un compte</a>
                     {% endif %}
                 </div>
             </li>

@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <main class="container my-5">
+
+        <h1 class="text-center my-5">Register</h1>
+
+        {% include('registration/_form.html.twig') %}
+    </main>
+{% endblock %}
